@@ -140,13 +140,24 @@ class SiteController extends Controller {
 
 	public function actionVerCodigo($token=""){
 		require __DIR__.'/../vendor/phpqrcode/qrlib.php';
+		$usuario = EntUsuarios::find()->where(['txt_token'=>$token])->one();
 
 		$link = Yii::$app->urlManager->createAbsoluteUrl([
 			'site/ver-datos?token=' . $token
 		]);
-		
+
+		// we building raw data 
+		$codeContents  = 'BEGIN:VCARD'."\n"; 
+		$codeContents .= 'VERSION:2.1'."\n"; 
+		$codeContents .= 'FN:'.$usuario->txt_nombre_completo."\n"; 
+		//$codeContents .= 'ORG:'.$usuario."\n"; 
+		//$codeContents .= 'TEL;WORK;VOICE:'.$usuario."\n"; 
+		//$codeContents .= 'TEL;HOME;VOICE:'.$usuario."\n"; 
+		$codeContents .= 'TEL;TYPE=cell:'.$usuario->txt_telefono_celular."\n";
+		$codeContents .= 'END:VCARD'; 
+
 		// outputs image directly into browser, as PNG stream
-		\QRcode::png($link);
+		\QRcode::png($codeContents, $link);
 		exit();
 	}
 
