@@ -142,9 +142,6 @@ class SiteController extends Controller {
 		return ob_get_clean();
 	}
 	
-	
-	
-	
 	private function downloadSendHeaders($filename) {
 		// disable caching
 		$now = gmdate ( "D, d M Y H:i:s" );
