@@ -108,10 +108,8 @@ class SiteController extends Controller {
 			
 			$i++;
 		}
-		
-		
-	//print_r($arrayCsv );
-	//exit ();
+		//print_r($arrayCsv );
+		//exit ();
 		
 		$this->downloadSendHeaders ( 'reporte.csv' );
 		
