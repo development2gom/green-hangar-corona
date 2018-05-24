@@ -40,19 +40,15 @@ function step3() {
 	$(contenedorGlobal).addClass('container-premio');
 }
 
-function abrirAviso() {
-	$('.aviso-box').show();
-}
 
-function cerrarAviso() {
-	$('.aviso-box').hide();
-}
 
-$(document).ready(function () {
+
+$(document).ready(function(){
+	console.log("Jquery Running");
 
 	// Muestra el aviso de privacidad
 	$('.terminos-wrapper .message').on('click', function () {
-		abrirAviso();
+		showOverlay(overlayIsShowing)
 	});
 
 	// Aceptar aviso de privacidad
@@ -62,7 +58,7 @@ $(document).ready(function () {
 		$('.js-check-box-aviso').css('background', '#D98C34');
 
 		$('.js-check-box-aviso').addClass('js-check-box-aviso-checked');
-		cerrarAviso();
+		showOverlay(overlayIsShowing)
 	});
 
 	$('.js-check-box-aviso').on('click', function (e) {
@@ -74,7 +70,7 @@ $(document).ready(function () {
 
 			$('.js-check-box-aviso').removeClass('js-check-box-aviso-checked');
 		} else {
-			abrirAviso();
+			showOverlay(overlayIsShowing)
 		}
 	});
 
@@ -85,14 +81,21 @@ $(document).ready(function () {
 	});
 
 	$('.js-next-step').on('click', function (e) {
-		e.preventDefault();
-		step2();
+		//e.preventDefault();
+		//step2();
+
+		var l = Ladda.create(this);
+			l.start();
 	});
 
 	// Al campo de texto número validara solo numeros
 	$('#entusuarios-txt_telefono_celular').keydown(function (e) {
 		validarSoloNumeros(e);
 	});
+
+	$("#entusuarios-num_edad").keydown(function (e){
+		validarSoloNumeros(e);
+	})
 
 	// Al campo de texto número validara solo numeros
 	$('#entusuarios-txt_cp').keydown(function (e) {
@@ -114,7 +117,14 @@ $(document).ready(function () {
 		e.preventDefault();
 		step1();
 	});
-
+	
+	$('#form-usuario-participar').on('afterValidate', function (e, messages, errorAttributes) {
+        if(errorAttributes.length > 0){
+            shake();
+            return false;
+        }
+        
+    });
 
 	$('body').on(
 		'beforeSubmit',
@@ -124,44 +134,119 @@ $(document).ready(function () {
 
 			// return false if form still have some validation errors
 			if (form.find('.has-error').length) {
+				shake();
 				return false;
 			}
+
+			if(!$('.js-check-box-aviso').hasClass('js-check-box-aviso-checked')){
+				sweetAlert("Espera", "Debes aceptar el aviso de privacidad", "warning");
+				return false;
+			}
+
+			
 
 			var l = Ladda.create(document.getElementById('js-btn-guardar-informacion'));
 			l.start();
 
-			var data = form.serialize();
+			//var data = form.serialize();
 
-			$.ajax({
-				url: 'site/guardar-informacion',// url para peticion
-				type: 'post', // Metodo en el que se enviara la informacion
-				data: data, // La informacion a mandar
-				dataType: 'HTML',  // Tipo de respuesta
-				success: function (response) { // Cuando la peticion sea exitosamente se ejecutara la funcion
-					$('.js-premio-ajax').html(response);
-					step3();
-					// Reseteamos el modal
-					document.getElementById("form-usuario-participar").reset();
+			// $.ajax({
+			// 	url: 'site/guardar-informacion',// url para peticion
+			// 	type: 'post', // Metodo en el que se enviara la informacion
+			// 	data: data, // La informacion a mandar
+			// 	dataType: 'HTML',  // Tipo de respuesta
+			// 	success: function (response) { // Cuando la peticion sea exitosamente se ejecutara la funcion
+			// 		$('.js-premio-ajax').html(response);
+			// 		step3();
+			// 		// Reseteamos el modal
+			// 		document.getElementById("form-usuario-participar").reset();
 
-					l.stop();
-					$('.js-check-box-aviso').css('background', 'white');
+			// 		l.stop();
+			// 		$('.js-check-box-aviso').css('background', 'white');
 
-					$('.js-check-box-aviso').removeClass('js-check-box-aviso-checked');
-				},
-				error: function () {
-					l.stop();
-				},
-				statusCode: {
-					404: function () {
-						//alert( "page not found" );
-					}
-				}
-			});
-			return false;
+			// 		$('.js-check-box-aviso').removeClass('js-check-box-aviso-checked');
+			// 	},
+			// 	error: function () {
+			// 		l.stop();
+			// 	},
+			// 	statusCode: {
+			// 		404: function () {
+			// 			//alert( "page not found" );
+			// 		}
+			// 	}
+			// });
+			//return false;
 		});
 
 
+
+
+	// Modal Show & Dismiss
+	  var overlayIsShowing = false
+
+	  function showOverlay(overlayState){
+	    if (overlayState) {
+	      $('.overlay').removeClass('visible');
+	      $('.overlay').css('position','absolute');
+	      overlayIsShowing = false
+	    } else {
+	      $('.overlay').addClass('visible');
+	      $('.overlay').css('position','fixed');
+	      overlayIsShowing = true
+	    }
+	  }
+
+	  // $('.js-modal-trigger').click(function(){
+	  //   showOverlay(overlayIsShowing)
+	  // });
+
+	  $('.js-dismiss-modal').click(function(e){
+	    console.log(this);
+	    e.preventDefault();
+	    showOverlay(overlayIsShowing)
+	  });
+
+	  $('.overlay').click(function(e){
+	    console.log(this);
+	    e.preventDefault();
+	    if (e.target === this){
+	      showOverlay(overlayIsShowing)
+	    }
+	  });
+
+	// Flipping panel Toggle via BUTTON CLICK
+	var isFlipped = false
+	$('.js-flip-panel').click(function(e){
+		e.preventDefault();
+		console.log("Fliping panel");
+		if (isFlipped) {
+			$('.flip-panel').removeClass('flip');
+			isFlipped = false
+		} else {
+			$('.flip-panel').addClass('flip');
+			isFlipped = true
+		}
+	});
+
+	$('.js-shake-panel').click(function(e){ 
+		e.preventDefault();
+		shake();
+	});
+
+
+
 });
+
+
+
+function shake(){
+	$('.form-wrapper').addClass('shake');
+	setTimeout(removeShakeClass, 500);
+}
+
+function removeShakeClass(){
+	$('.form-wrapper').removeClass('shake');
+}
 
 /**
  * Valida que cuando se aprieta un boton sea solo números

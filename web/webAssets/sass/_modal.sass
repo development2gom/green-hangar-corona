@@ -1,0 +1,123 @@
+// Overlay
+.overlay
+	z-index: 2000
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: rgba($black,.7)
+	visibility: hidden
+	opacity: 0
+	display: flex
+	align-items: flex-start
+	justify-content: center
+	overflow: auto
+	cursor: pointer
+	+transition(all .3s)
+
+.overlay.visible
+	opacity: 1
+	visibility: visible
+	.modal-window
+		+translate(0,0)
+
+.dismiss-modal
+	z-index: 3000
+	position: absolute
+	right: 8px
+	top: 8px
+	padding: 8px 12px
+	cursor: pointer
+	color: $black
+	i
+		font-size: 1.5em
+
+.modal-window
+	padding: 64px 0
+	display: block
+	background-color: transparent
+	position: relative
+	z-index: 4000
+	+translate(0,-40px)
+	+transition(transform .3s cubic-bezier(.43,-0.04,.21,1.29))
+	+respond-to(sp)
+		padding: 8px 0
+	+respond-to(sl)
+		padding: 12px 0
+	+respond-to(tp)
+		padding: 24px 0
+	
+	
+	.panel
+		border-radius: 5px
+		overflow: hidden
+		position: relative
+		.panel-header
+			background-color: $warning
+			width: 100%
+			padding: 8px 16px
+		.panel-body
+			width: 100%
+			padding: 24px 24px
+			background-color: $white
+			p
+				margin-bottom: 8px
+			h2,h3,h4,h5
+				color: $primary
+				margin: 32px 0 16px 
+			h2
+				font-size: 1.3em
+				color: $black
+				+respond-to(sl)
+					font-size: 1em
+			h4
+				font-weight: $bold
+				font-size: 1.2em
+			h5
+				font-size: 1em
+			h3:first-child
+				margin-top: 0px
+			ol,ul
+				padding-left: 3rem
+				margin: 16px 0
+				+respond-to(sl)
+					padding-left: 1em
+				li
+					margin: 8px 0
+			ol.pie-de-pagina
+				font-size: .7rem
+				margin: 0
+			.accept-btn-wrapper
+				margin-top: 50px
+				text-align: center
+				+respond-to(sl)
+					width: 100%
+		.panel-footer
+			width: 100%
+			background-color: $default
+			padding: 8px 16px
+			text-align: right
+			h6
+				color: $primary
+				font-size: .8rem
+				font-weight: $regular
+	
+.modal-small
+	width: 25%
+	+respond-to(sp)
+		width: 75%
+
+.modal-medium
+	width: 50%
+	+respond-to(tp)
+		width: 70%
+	+respond-to(sl)
+		width: 95%
+	+respond-to(sp)
+		width: 95%
+
+.modal-wide
+	width: 80%
+	+respond-to(sp)
+		width: 100%

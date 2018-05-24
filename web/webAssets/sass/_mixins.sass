@@ -33,25 +33,39 @@
 	-moz-box-shadow: $shadow
 	box-shadow: $shadow
 
-//
+
 // Media Queries
 //
 =respond-to($media)
 	@if $media == lg
-		@media (min-width: $screen-md + 1)
+		@media (min-width: $screen-lg + 1)
 			@content
+
 	@else if $media == md
-		@media (min-width: $screen-sm) and (max-width: $screen-md)
+		@media (min-width: $screen-tl) and (max-width: $screen-md - 1 )
 			@content
-	@else if $media == sm
-		@media (min-width: $screen-xs + 1) and (max-width: $screen-sm - 1)
+
+	@else if $media == tl
+		@media (min-width: $screen-tp + 1) and (max-width: $screen-tl - 1)
 			@content
-	@else if $media == xs
-		@media screen and (max-width: $screen-xs)
+
+	@else if $media == tp-
+		@media screen and (min-width: $screen-sl)
 			@content
-	@else if $media == xx
-		@media screen and (max-width: $screen-xx)
+
+	@else if $media == tp
+		@media screen and (max-width: $screen-tp)
 			@content
+
+	@else if $media == sl
+		@media screen and (max-width: $screen-sl)
+			@content
+
+	@else if $media == sp
+		@media screen and (max-width: $screen-sp)
+			@content
+			@content
+
 
 //
 // Transición
@@ -71,3 +85,55 @@
 		@content
 	&:-ms-input-placeholder
 		@content
+
+
+=perspective($perspective)
+	-webkit-perspective: $perspective
+	-moz-perspective: $perspective
+
+=backface($bool)
+	-webkit-backface-visibility: $bool
+	-moz-backface-visibility: $bool
+
+=fullbkgd($url)
+	background:
+		image: url('$url')
+		repeat: no-repeat
+		size: cover
+		position: center
+
+// Browser Prefixes
+=transform($transforms)
+	-webkit-transform: $transforms
+	-moz-transform: $transforms
+	-ms-transform: $transforms
+	transform: $transforms
+
+
+=transform-style($style)
+	-webkit-transform-style: $style
+	-moz-transform-style: $style
+
+// Rotate
+=rotate($degX, $degY)  
+	+transform(rotateX(#{$degX}deg) rotateY(#{$degY}deg))
+
+
+// Scale
+=scale($scale)
+	+transform(scale($scale))
+
+// Translate
+=translate($x, $y)
+	+transform(translate($x, $y))
+
+// Skew
+=skew ($x, $y)
+	+transform(skew(#{$x}deg, #{$y}deg))
+
+// Transform Origin
+=origin ($origin)
+	-webkit-transform-origin: $origin
+	-moz-transform-origin: $origin
+	-ms-transform-origin: $origin
+	transform-origin: $origin

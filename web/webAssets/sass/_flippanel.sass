@@ -1,0 +1,83 @@
+// Flip Panel
+.flip-panel
+	display: inline-block
+	z-index: 9
+	width: 200px
+	height: 300px
+	border-radius: 5px
+	margin: 0 auto
+	+transition(all 0.2s ease-in-out)
+	+origin(center center)
+	+perspective(700px)
+	position: relative
+	.front,
+	.back
+		height: inherit
+		width: 100%
+		position: absolute
+		top: 0
+		text-align: center
+		+transform-style(preserve-3d)
+		+backface(hidden)
+		+transition(all .4s cubic-bezier(.45,-0.5,.54,1.4)) 
+	.front
+		z-index: 900
+		+rotate(0,0)
+		.fp-front
+			display: flex
+			align-items: center
+			justify-content: center
+			background-color: $default
+			height: 100%
+			width: 100%
+			border-radius: 5px
+			background:
+				image: url('https://www.joshmatthews.net/cusec16/pictures/shutterstock_124758646-copy.jpg')
+				repeat: no-repeat
+				size: cover
+				position: center
+			+box-shadow(0 10px 25px -15px rgba($black, 0.7))
+			p
+				color: $white
+	.back
+		+rotate(0,180)
+		z-index: 1000
+		.fp-back
+			display: flex
+			align-items: center
+			justify-content: center
+			background-color: $warning
+			height: 100%
+			width: 100%
+			border-radius: 5px
+			+box-shadow(0 10px 25px -15px rgba($black, 0.7))
+			p
+				color: $white
+	
+.panel.flip
+	.front
+		z-index: 900
+		+rotate(0,-180)
+	.back
+		z-index: 1000
+		+rotate(0,0)
+
+.shake
+	animation: 
+		name: shake
+		duration: 500ms
+		curve: ease-in-out
+
+@keyframes shake
+	0%
+		transform: translateX(0)
+	12.5%
+		transform: translateX(-6px) rotateY(-6deg)
+	37.5%
+		transform: translateX(5px) rotateY(5deg)
+	62.5%
+		transform: translateX(-3px) rotateY(-2deg)
+	87.5%
+		transform: translateX(2px) rotateY(1deg)
+	100%
+		transform: translateX(0)

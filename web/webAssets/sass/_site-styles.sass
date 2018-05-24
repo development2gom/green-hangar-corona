@@ -23,13 +23,13 @@ body
 	margin-top: -300px
 	+box-shadow(0px 10px 30px -15px $secondary)
 	z-index: 20
-	+respond-to(xs)
+	+respond-to(sl)
 		width: 90%
 		top: 50%
 		left: 50%
 		margin-left: -45%
 		margin-top: -50%
-	+respond-to(xx)
+	+respond-to(sp)
 		width: 100%
 		position: absolute
 		top: 0
@@ -50,12 +50,12 @@ body
 		margin: 20px auto
 		text-align: justify
 		line-height: 1.5em
-		+respond-to(xs)
+		+respond-to(sl)
 			text-align: left
 
 	a.btn
 		width: 100%
-		+respond-to(xx)
+		+respond-to(sp)
 			position: fixed
 			bottom: 10px
 			left: 45%
@@ -74,6 +74,8 @@ body
 		margin-top: 20px
 		width: 300px
 		background-color: transparent
+		position: relative
+		z-index: 10
 		input
 			outline: 0
 			box-sizing: border-box
@@ -83,104 +85,135 @@ body
 			border: 2px solid $primary
 			width: 100%
 			padding: 0 15px
-			border-radius: 3px
+			border-radius: 10px
 			font-family: $f-base
-			font-weight: $bold
+			font-weight: $regular
 			background-color: $white
 			color: $secondary
+			font-size: 1em
+			text-transform: uppercase
 		input::placeholder
-				opacity: .7
+			opacity: .9
+			padding-top: 5px
 		.help-block
 			font-size: .8em
 			text-indent: 10px
 			color: $secondary
-
-		.terminos-wrapper
-			margin: 20px 0
-			display: flex
-			align-items: center
-			justify-content: flex-start
-			.check-box
-				display: inline-block
-				height: 20px
-				width: 20px
-				border-right: 2px
-				border: 1px solid $secondary
-				box-sizing: border-box
-				border-radius: 3px
-				margin-right: 10px
-			p
-				display: inline-block
-				width: auto
-				margin: 0
-				padding: 0
-				font-size: .75em
+		
 
 		.form-cta-wrapper
 			text-align: right
 			a
 				margin: 0 auto
+	.note
+		text-align: center
+		height: 50px;
+		border: 2px solid $primary;
+		border-radius: 10px;
+		line-height: 3.9em;
+		color: #aaa
+		span
+			font-weight: $bold
 
+			
+.terminos-wrapper
+	margin: 20px 0
+	display: flex
+	align-items: center
+	justify-content: flex-start
+	p
+		display: inline-block
+		width: auto
+		margin: 0
+		padding: 0
+		font-size: .75em
+	.check-box
+		display: inline-block
+		height: 20px
+		width: 20px
+		border-right: 2px
+		border: 1px solid $primary
+		box-sizing: border-box
+		border-radius: 0px
+		margin-right: 10px
 
 
 	/* Para la pantalla de premio */
 
-	.premio
-		width: 690px
-		text-align: center
-		margin-top: 150px
-		position: relative
-		+respond-to(xs)
-			width: 80%
-			margin: 0 auto
-		p
-			margin-bottom: 20px
-			font-size: 1.5em
-			text-align: left
-			+respond-to(xs)
-				font-size: 1.2em
+.premio
+	width: 500px
+	text-align: center
+	position: relative
+	+respond-to(sl)
+		width: 90%
+		margin: 0 auto
+	h1,h3,p
+		margin-bottom: 10px
+		+respond-to(sl)
+		 font-size: 1em
+	h1
+		color: $accent
+		max-width: 100%
+	h3
+		color: $accent
+	p
+		margin-bottom: 20px
 
 .container-ribbon,
 .container-premio
 	flex-direction: column
+	position: relative
 	background:
-		image: url("../images/ribbon.png")
-		position: top right
+		image: url("../images/web-bkgd.png")
+		position: center
+		size: cover
 		repeat: no-repeat
 
 	a
-		margin-top: 100px
-		+respond-to(xx)
+		margin-top: 20px
+		+respond-to(sp)
 			margin-top: 50px
 
 .container-premio
 	background:
-		image: url("../images/logo-fa-with-ribbon.png")
-		position: top left
+		image: url("../images/web-bkgd.png")
+		position: center
+		size: cover
 		repeat: no-repeat
-		size: 60%
+	+respond-to(sl)
+		padding: 50px
+	h3
+		color: $primary
+	h4
+		margin: 14px 0
+		text-transform: uppercase
+	p
+		width: 400px
+		text-align: center
+		margin: 10px 0
+		+respond-to(sl)
+			width: auto
+			color: $primary
+
+	img
+		margin: 10px 0
 
 .container-home
 	justify-content: center
 	align-items: center
 	background:
-		image: url("../images/web-bkgd.jpg")
+		image: url("../images/web-bkgd.png")
 		position: center
 		repeat: no-repeat
 		size: cover
-	+respond-to(xs)
+	+respond-to(sp)
 		background:
-			image: url("../images/web-bkgd-movil.jpg")
+			//image: url("../images/web-bkgd-movil.jpg")
 
 
 	.selecciona-tarjeta-wrapper
 		text-align: center
 		margin-top: 300px
-		//margin-right: 70px
-		//margin-bottom: 150px
-		// background-color: rgba(216, 216, 216, 0.3)
-		// border-radius: 5px
-		// padding: 20px
 		h3
 			margin-bottom: 20px
 
@@ -193,7 +226,7 @@ body
 	z-index: -1
 	bottom: 40px
 	right: 40px
-	+respond-to(xs)
+	+respond-to(sl)
 		width: 100px
 		margin-left: -50px
 		left: 50%
@@ -204,9 +237,39 @@ body
 	position: fixed
 	top: 10%
 	left: 50%
-	margin-left: -30%
+	margin-left: -48px
 	z-index: 1
-	width: 60%
-	+respond-to(xs)
-		width: 90%
-		margin-left: -45%
+
+.logo-evento-inicio
+	top: 40%
+
+.serpentina
+	position: fixed
+	top: 0%
+	left: 0%
+	z-index: 0
+	//width: 60%
+	+respond-to(sl)
+		width: 30%
+	+respond-to(sp)
+		width: 20%
+		//margin-left: -45%
+
+.data-table
+	width: 80%
+	margin: 0 auto
+	tr
+		5px
+		td.concepto-cell,td.data-cell
+			text-align: right
+			height: 4em
+			vertical-align: middle
+			border: 0px solid $black
+			padding: 5px
+			box-sizing: border-box
+			border-radius: 5px
+		td.data-cell
+			background-color: $primary
+			font-weight: $bold
+			color: $black
+			text-align: center
