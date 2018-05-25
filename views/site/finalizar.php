@@ -11,8 +11,8 @@ $this->title="Gracias por participar";
 
 	<!-- Premio contenedor -->
 	<div class="finalizar-cont js-premio-contenedor premio">
-		<h3>¡Gracias por participar!</h3>
-	    <p>Recibirás al instante un QR al celular registrado como comprobante de participación, el cual deberás conservar para poder reclamar el premio en caso de resultar ganador, así como el ó los tickets participantes.</p>
+		<h3>¡¡Tu registro ha sido exitoso!!</h3>
+	    <p>En los próximos minutos recibirás un QR en el celular registrado, deberás presentarlo junto con una identificación oficial en el área de Cashless dentro del Hangar Corona para poder entregarte tu beneficio.</p>
 			
 		<a class="btn btn-primary" href="<?=Url::base()?>">Finalizar</a>
 		
