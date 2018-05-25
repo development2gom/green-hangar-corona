@@ -2,19 +2,26 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 $this->title = '24 ANIVERSARIO CENTRO COMERCIAL SANTA FE';
 ?>
 
+<div class="avion">
+	<img class="avion-image" src="<?=Url::base()?>/webAssets/images/avion.png" alt="Centro Santa Fe">
+</div>
+	
 <div class="container container-home">
 	<!-- Main content Wrapper -->
-	<img class="logo-evento logo-evento-inicio" src="webAssets/images/logo-centro-sta-fe.png" alt="Centro Santa Fe">
+	
 	<!-- Contenedor de las tarjetas -->
-	<div class="js-tarjetas-contenedor">
+	<div class="inicio-cont js-tarjetas-contenedor">
+
+		<img class="logo-hangar" src="webAssets/images/logo-AeroCorona.png" alt="Centro Santa Fe">
 
 		<!-- Seleccion de Tarjeta -->
-		<div class="selecciona-tarjeta-wrapper">
+		<div class="inicio-cont-actions">
 
             <?= Html::a('<span class="ladda-label">Comenzar</span>', ['site/registro'], ['class'=>'btn btn-primary js-next-step ladda-button', 'data-style'=>'zoom-in']);?>
 

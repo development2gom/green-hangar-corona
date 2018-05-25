@@ -6,7 +6,7 @@
 	left: 0
 	right: 0
 	bottom: 0
-	background-color: rgba($black,.7)
+	background-color: rgba($primary,.65)
 	visibility: hidden
 	opacity: 0
 	display: flex
@@ -38,6 +38,7 @@
 	display: block
 	background-color: transparent
 	position: relative
+	max-width: 90%
 	z-index: 4000
 	+translate(0,-40px)
 	+transition(transform .3s cubic-bezier(.43,-0.04,.21,1.29))
@@ -54,21 +55,31 @@
 		overflow: hidden
 		position: relative
 		.panel-header
-			background-color: $warning
+			background-color: $primary
 			width: 100%
 			padding: 8px 16px
+			+respond-to(tl)
+				text-align: center
+			+respond-to(xs)
+				text-align: center
+			h3
+				color: $white
 		.panel-body
+			color: $primary
 			width: 100%
 			padding: 24px 24px
 			background-color: $white
 			p
 				margin-bottom: 8px
+				white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
 			h2,h3,h4,h5
 				color: $primary
 				margin: 32px 0 16px 
 			h2
 				font-size: 1.3em
-				color: $black
+				color: $primary
 				+respond-to(sl)
 					font-size: 1em
 			h4
@@ -93,15 +104,31 @@
 				text-align: center
 				+respond-to(sl)
 					width: 100%
+				.btn.btn-primary
+					white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+					+respond-to(xs)
+						// min-width: 100%
+						max-width: 100%
+					+respond-to(sl)
+						min-width: 100%
+						max-width: 100%
+
 		.panel-footer
 			width: 100%
-			background-color: $default
+			background-color: $primary
 			padding: 8px 16px
 			text-align: right
+			+respond-to(tl)
+				text-align: center
+			+respond-to(xs)
+				text-align: center
 			h6
-				color: $primary
+				color: $white
 				font-size: .8rem
 				font-weight: $regular
+
 	
 .modal-small
 	width: 25%

@@ -55,7 +55,7 @@ $(document).ready(function(){
 	$('.js-btn-aceptar-aviso').on('click', function (e) {
 		e.preventDefault();
 
-		$('.js-check-box-aviso').css('background', '#D98C34');
+		$('.js-check-box-aviso').css('background', '#0B223F');
 
 		$('.js-check-box-aviso').addClass('js-check-box-aviso-checked');
 		showOverlay(overlayIsShowing)

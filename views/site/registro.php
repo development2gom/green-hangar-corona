@@ -5,17 +5,17 @@ use yii\helpers\Url;
 
 
 $this->title="Registro";
+$this->registerJsFile('@web/webAssets/js/registro.js',
+['depends'=>[\app\assets\AppAsset::className()]]);
 ?>
 
 <div class="container container-ribbon">
 	<!-- Main content Wrapper -->
-
+	<div class="avion">
+		<img class="avion-image" src="<?=Url::base()?>/webAssets/images/avion.png" alt="Centro Santa Fe">
+	</div>
 	<!-- Contenedor de registro -->
-	<div class="js-registro-contenedor">
-		<img class="serpentina" src="<?=Url::base()?>/webAssets/images/serpentina.png" alt="Serpentinas - Centro Santa Fe">
-		<img class="logo-evento" src="<?=Url::base()?>/webAssets/images/logo-centro-sta-fe.png" alt="Centro Santa Fe">
-		
-
+	<div class="registro-cont js-registro-contenedor">
 
 		<div class="form-wrapper">
 			<?php
@@ -207,7 +207,7 @@ $this->title="Registro";
 
 		<p>Contacto PUBLICIDAD Y SOLUCIONES GREEN S.A. DE C.V.    <a href="mailto:info@publicidadgreen.com.mx">info@publicidadgreen.com.mx</a></p>
 		<div class="accept-btn-wrapper">
-			<a class="btn btn-secondary js-btn-aceptar-aviso" href=""> Acepto los avisos de privacidad </a>
+			<a class="btn btn-primary js-btn-aceptar-aviso" href=""> Acepto los avisos de privacidad </a>
 		</div>
     </div>
     <div class="panel-footer"><h6>CENTRO COMERCIAL SANTA FE y P. GREEN 2017</h6></div>
