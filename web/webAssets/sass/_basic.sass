@@ -112,95 +112,195 @@ hr
 
 /*  Btn
 	================================================ */
+.ladda-button
+	background-color: transparent
+	border-radius: 0
+	padding: 0
+
+.btn-primary.ladda-button[disabled],
+.btn-primary.ladda-button[disabled]:hover,
+.btn-primary.ladda-button[data-loading],
+.btn-primary.ladda-button[data-loading]:hover
+	background-color: $primary
+
 .btn
+	display: inline-block
+	text-align: center
+	white-space: nowrap
+	vertical-align: middle
+	-webkit-user-select: none
 	-moz-user-select: none
 	-ms-user-select: none
-	-webkit-user-select: none
-	border-radius: 1.3rem
-	border: 1px solid transparent
-	cursor: pointer
-	display: inline-block
-	font-family: $f-base
-	font-size: 1.04rem
-	font-weight: $bold
-	line-height: 1.25
-	padding: .5rem 1rem
-	text-align: center
 	user-select: none
-	vertical-align: middle
-	white-space: nowrap
-	+border-radius(10px)
-	box-shadow: 0 3px 0 rgba(0,0,0,.05)
-	min-width: 100px
-	+respond-to(sl)
-		width: 100% 
-		font-size: .7em
-		font-weight: 400
-
-.btn.active.focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn:active:focus,
-.btn:focus
-	outline: none
-	outline-offset: -2px
-
-.btn:focus,
-.btn:hover
-	text-decoration: none
-
-.btn.focus
-	text-decoration: none
-
-.btn.active,
-.btn:active
-	background-image: none
-	outline: 0
-
-.btn.disabled,
-.btn:disabled
-	cursor: not-allowed
-	opacity: .65
+	border: 1px solid transparent
+	padding: .375rem 1.65rem
+	line-height: 1.5
+	font-size: $fs-16
+	font-weight: $regular
+	letter-spacing: 1px
+	border-radius: .25rem
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 
 .btn-primary
-	color: $primary
-	background-color: $secondary
-	border-color: $secondary
+	border-color: $primary
+	background-color: $primary
+	background-image: url(../images/BOTON.png)
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: 260px 60px
+	border-radius: 40px
+	color: $white
+	padding: .375rem 1.65rem
+	text-transform: uppercase
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active
+		border-color: lighten( $primary, 10% )
+		background-color: lighten( $primary, 10% )
+		box-shadow: none
+		color: $white
+
 
 .btn-secondary
-	color: $white
-	background-color: $secondary
 	border-color: $secondary
-
-.btn-simple
-	font-weight: $regular
-	padding: 0
-	border-radius: 0
-	font-size: .8em
-	text-decoration: none
-	+box-shadow(none)
-	margin: 0
-
-.btn-primary:hover,
-.btn-secondary:hover
+	// background-color: $secondary
+	background-color: transparent
 	color: $white
-	background-color: $primary
-	border-color: $primary
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $secondary, 10% )
+		// background-color: darken( $secondary, 10% )
+		background-color: transparent
+		box-shadow: none
+		color: $white
 
-.btn-primary.focus,
-.btn-primary:focus
-	background-color: $accent
+.btn-outline-primary
+	border-color: $grey-d
+	color: $grey-d
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
+
+.btn-warning
 	border-color: $accent
-
-.btn-primary.active,
-.btn-primary:active
-	color: $white
 	background-color: $accent
-	border: none
-	background-image: none
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $accent, 10% )
+		background-color: darken( $accent, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($accent,0.1)
 
+.btn-error
+	border-color: $error
+	background-color: $error
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $error, 10% )
+		background-color: darken( $error, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($error,0.1)
 
+.btn-success
+	border-color: $success
+	background-color: $success
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $success, 10% )
+		background-color: darken( $success, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($success,0.1)
+
+.btn-info
+	border-color: $info
+	background-color: $info
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $info, 10% )
+		background-color: darken( $info, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($info,0.1)
+
+.btn-outline-default
+	background-color: transparent
+	border-color: $font-color
+	color: $font-color
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $font-color, 10% )
+		color: darken( $font-color, 10% )
+		box-shadow: none
+
+// 
 .highlight
 	color: $secondary
 	font-weight: $bold
@@ -241,3 +341,50 @@ hr
 	+respond-to(sp)
 		height: auto
 		overflow: hidden
+
+// 
+.avion
+	left: 0
+	position: fixed
+	right: 0
+	top: 0
+	text-align: center
+	width: 100%
+	transition: (transform 0.3s cubic-bezier(0.59, -0.45, 0.69, 0.39),-webkit-transform 0.3s cubic-bezier(.47,0,.74,.71))
+	z-index: 9
+	img
+		max-width: 100%
+		width: 100%
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		top: -30px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		top: -30px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		top: -30px
+
+	&.avion-finalizar
+		@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+			top: -70px
+		@media screen and (max-width: 600px ) and (orientation: landscape)
+			top: -60px
+		@media screen and (max-width: 480px ) and (orientation: landscape)
+			top: -60px
+
+	&.avion-anim
+		transform: translateY(-100px)
+		+respond-to(tl)
+			transform: translateY(-40px)
+		+respond-to(xs)
+			transform: translateY(-40px)
+		+respond-to(tp)
+			transform: translateY(-40px)
+		+respond-to(sl)
+			transform: translateY(-40px)
+		+respond-to(sp)
+			transform: translateY(-40px)
+		// @media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		// 	transform: translateY(-40px)
+		// @media screen and (max-width: 600px ) and (orientation: landscape)
+		// 	transform: translateY(-40px)
+		// @media screen and (max-width: 480px ) and (orientation: landscape)
+		// 	transform: translateY(-40px)

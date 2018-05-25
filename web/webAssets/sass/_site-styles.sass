@@ -67,8 +67,17 @@ body
 	justify-content: center
 	background-color: transparent
 	width: 100%
-	height: 100vh
+	min-height: 100vh
 	z-index: 1
+	+respond-to(tl)
+		padding-bottom: 40px
+		padding-top: 40px
+	+respond-to(xs)
+		padding-bottom: 40px
+		padding-top: 40px
+	+respond-to(tp)
+		padding-bottom: 40px
+		padding-top: 40px
 
 	.form-wrapper
 		margin-top: 20px
@@ -82,17 +91,17 @@ body
 			display: block
 			height: 50px
 			margin: 15px 0
-			border: 2px solid $primary
+			border: 1px solid $primary
 			width: 100%
 			padding: 0 15px
 			border-radius: 10px
 			font-family: $f-base
 			font-weight: $regular
 			background-color: $white
-			color: $secondary
+			color: $primary
 			font-size: 1em
-			text-transform: uppercase
 		input::placeholder
+			color: #AEB5BF
 			opacity: .9
 			padding-top: 5px
 		.help-block
@@ -105,6 +114,20 @@ body
 			text-align: right
 			a
 				margin: 0 auto
+			a.btn.btn-primary,
+			button.btn.btn-primary
+				+respond-to(tp)
+					max-width: 100%
+					min-width: 100%
+				+respond-to(tx)
+					max-width: 100%
+					min-width: 100%
+				+respond-to(sl)
+					max-width: 100%
+					min-width: 100%
+				+respond-to(sp)
+					max-width: 100%
+					min-width: 100%
 	.note
 		text-align: center
 		height: 50px;
@@ -117,6 +140,7 @@ body
 
 			
 .terminos-wrapper
+	cursor: pointer
 	margin: 20px 0
 	display: flex
 	align-items: center
@@ -126,16 +150,22 @@ body
 		width: auto
 		margin: 0
 		padding: 0
-		font-size: .75em
+		font-size: .95em
+		fon
+		color: $white
+		font-weight: $regular
+		margin-left: 16px
+		span
+			color: $white
+			font-weight: $regular
 	.check-box
 		display: inline-block
 		height: 20px
 		width: 20px
-		border-right: 2px
 		border: 1px solid $primary
 		box-sizing: border-box
-		border-radius: 0px
-		margin-right: 10px
+		border-radius: 2px
+		background-color: $white
 
 
 	/* Para la pantalla de premio */
@@ -164,7 +194,7 @@ body
 	flex-direction: column
 	position: relative
 	background:
-		image: url("../images/web-bkgd.png")
+		image: url("../images/bkgd.jpg")
 		position: center
 		size: cover
 		repeat: no-repeat
@@ -176,7 +206,7 @@ body
 
 .container-premio
 	background:
-		image: url("../images/web-bkgd.png")
+		image: url("../images/bkgd.jpg")
 		position: center
 		size: cover
 		repeat: no-repeat
@@ -202,7 +232,7 @@ body
 	justify-content: center
 	align-items: center
 	background:
-		image: url("../images/web-bkgd.png")
+		image: url("../images/bkgd.jpg")
 		position: center
 		repeat: no-repeat
 		size: cover
@@ -213,35 +243,13 @@ body
 
 	.selecciona-tarjeta-wrapper
 		text-align: center
-		margin-top: 300px
+		margin-top: 32px
 		h3
 			margin-bottom: 20px
 
 		a
 			border-radius: 50px
 			margin: 0 10px
-
-.logo
-	position: absolute
-	z-index: -1
-	bottom: 40px
-	right: 40px
-	+respond-to(sl)
-		width: 100px
-		margin-left: -50px
-		left: 50%
-		bottom: 20px
-
-
-.logo-evento
-	position: fixed
-	top: 10%
-	left: 50%
-	margin-left: -48px
-	z-index: 1
-
-.logo-evento-inicio
-	top: 40%
 
 .serpentina
 	position: fixed
