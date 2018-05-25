@@ -18,7 +18,7 @@ $this->title = '24 ANIVERSARIO CENTRO COMERCIAL SANTA FE';
 	<!-- Contenedor de las tarjetas -->
 	<div class="inicio-cont js-tarjetas-contenedor">
 
-		<img class="logo-hangar" src="webAssets/images/logo-AeroCorona.png" alt="Centro Santa Fe">
+		<img class="logo-hangar" src="<?=Url::base()?>/webAssets/images/logo-AeroCorona.png" alt="Centro Santa Fe">
 
 		<!-- Seleccion de Tarjeta -->
 		<div class="inicio-cont-actions">
