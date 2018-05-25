@@ -33,8 +33,9 @@ $this->registerJsFile('@web/webAssets/js/registro.js',
 						'maxlength' => 150,
 						'placeholder'=>'Nombre completo'
 				] )->label(false);
+				
 				// Genera un input
-				echo $form->field ( $usuario, 'txt_email' )->textInput ( [
+				/*echo $form->field ( $usuario, 'txt_email' )->textInput ( [
 					'placeholder'=>'Email'
 				] )->label(false);
 				// Genera un input
@@ -45,7 +46,7 @@ $this->registerJsFile('@web/webAssets/js/registro.js',
 				echo $form->field ( $usuario, 'num_edad' )->textInput ( [
 					'maxlength' => 2,
 					'placeholder'=>'Edad'			
-				] )->label(false);
+				] )->label(false);*/
 				
 				// Genera un input
 				echo $form->field ( $usuario, 'txt_telefono_celular' )->textInput ( [
@@ -60,11 +61,11 @@ $this->registerJsFile('@web/webAssets/js/registro.js',
 				echo $form->field ( $usuario, 'num_pelotas' )->textInput ( [
 					'type'=>'number',
 					'maxlength' => 10,
-					'placeholder'=>'Número de esferas'
+					'placeholder'=>'Número de boletos'
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_promocion' )->textInput ( [
-					'placeholder'=>'CSF17'
+					'placeholder'=>"GI'O"
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_compra' )->textInput ( [

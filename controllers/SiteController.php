@@ -101,6 +101,8 @@ class SiteController extends Controller {
 				$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono_celular);
 
 				return $this->render('finalizar');
+			}else{
+				//print_r($usuario->errors);
 			}
 		}
 
