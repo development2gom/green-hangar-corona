@@ -151,12 +151,6 @@ class SiteController extends Controller {
 		Teléfono: 
 		'.$datos->txt_telefono_celular.'
 
-		Cp: 
-		'.$datos->txt_cp.'
-
-		E-mail: 
-		'.$datos->txt_email.'
-
 		Código de compra: 
 		'.$datos->txt_codigo_compra.'
 
