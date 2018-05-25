@@ -65,11 +65,11 @@ $this->registerJsFile('@web/webAssets/js/registro.js',
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_promocion' )->textInput ( [
-					'placeholder'=>"GI'O"
+					'placeholder'=>"Código de GI'O"
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_compra' )->textInput ( [
-					'placeholder'=>'codigo de compra'
+					'placeholder'=>'Código de compra'
 				] )->label(false);
 				
 				?>
