@@ -8,12 +8,13 @@ use yii\helpers\Url;
 $this->title = '24 ANIVERSARIO CENTRO COMERCIAL SANTA FE';
 ?>
 
-<div class="avion">
-	<img class="avion-image" src="<?=Url::base()?>/webAssets/images/avion.png" alt="Centro Santa Fe">
-</div>
+	
 	
 <div class="container container-home">
 	<!-- Main content Wrapper -->
+	<div class="avion">
+		<img class="avion-image" src="<?=Url::base()?>/webAssets/images/avion.png" alt="Centro Santa Fe">
+	</div>
 	
 	<!-- Contenedor de las tarjetas -->
 	<div class="inicio-cont js-tarjetas-contenedor">
