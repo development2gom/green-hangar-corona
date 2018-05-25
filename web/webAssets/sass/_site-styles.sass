@@ -213,7 +213,27 @@ body
 	+respond-to(sl)
 		padding: 50px
 	h3
-		color: $primary
+		color: $white
+		font-size: 2rem
+		line-height: 1.1
+		text-align: center
+		span
+			display: block
+		+respond-to(md)
+			font-size: 1.8rem
+		+respond-to(sm)
+			font-size: 1.6rem
+		+respond-to(xs)
+			font-size: 1.5rem
+		+respond-to(tp)
+			font-size: 1.4rem
+		+respond-to(tx)
+			font-size: 1.4rem
+		+respond-to(sl)
+			font-size: 1.4rem
+		+respond-to(sp)
+			font-size: 1.4rem
+
 	h4
 		margin: 14px 0
 		text-transform: uppercase
@@ -227,6 +247,24 @@ body
 
 	img
 		margin: 10px 0
+		max-width: 80%
+		min-width: 300px
+		+respond-to(xs)
+			min-width: 260px
+		+respond-to(tp)
+			min-width: 260px
+		+respond-to(tx)
+			min-width: 260px
+		+respond-to(sl)
+			min-width: 260px
+		+respond-to(sp)
+			min-width: 260px
+		@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+			min-width: 160px
+		@media screen and (max-width: 600px ) and (orientation: landscape)
+			min-width: 140px
+		@media screen and (max-width: 480px ) and (orientation: landscape)
+			min-width: 120px
 
 .container-home
 	justify-content: center

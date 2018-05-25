@@ -370,6 +370,27 @@ hr
 		@media screen and (max-width: 480px ) and (orientation: landscape)
 			top: -60px
 
+	&.avion-qr
+		top: -80px
+		+respond-to(xs)
+			top: -70px
+		+respond-to(tp)
+			top: -60px
+		+respond-to(tx)
+			top: -40px
+		+respond-to(sl)
+			top: -30px
+		+respond-to(sp)
+			top: -20px
+
+		@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+			top: -80px
+		@media screen and (max-width: 600px ) and (orientation: landscape)
+			top: -80px
+		@media screen and (max-width: 480px ) and (orientation: landscape)
+			top: -80px
+
+
 	&.avion-anim
 		transform: translateY(-100px)
 		+respond-to(tl)
