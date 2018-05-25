@@ -65,7 +65,7 @@ $this->title="Registro";
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_promocion' )->textInput ( [
-					'placeholder'=>'Codigo de promoción'
+					'placeholder'=>"GI'O"
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_compra' )->textInput ( [
