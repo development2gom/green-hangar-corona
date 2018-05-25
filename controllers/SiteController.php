@@ -147,17 +147,17 @@ class SiteController extends Controller {
 		where(['txt_token'=>$token])->one();
 
 		$datosUsuario ='
-		Nombre de usuario: 
-		'.$datos->txt_nombre_completo.'
+Nombre de usuario: 
+'.$datos->txt_nombre_completo.'
 
-		Teléfono: 
-		'.$datos->txt_telefono_celular.'
+Teléfono: 
+'.$datos->txt_telefono_celular.'
 
-		Código de compra: 
-		'.$datos->txt_codigo_compra.'
+Código de compra: 
+'.$datos->txt_codigo_compra.'
 
-		Número de boletos: 
-		'.$datos->num_pelotas;
+Número de boletos: 
+'.$datos->num_pelotas;
 				
 		// outputs image directly into browser, as PNG stream
 		\QRcode::png($datosUsuario);
