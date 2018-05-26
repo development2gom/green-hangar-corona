@@ -17,6 +17,7 @@ use app\models\CatPremios;
 use app\models\Utils;
 
 class SiteController extends Controller {
+	public $sendQr = false;
 	/**
 	 * @inheritdoc
 	 */
@@ -80,6 +81,19 @@ class SiteController extends Controller {
 		return $this->render('finalizar');
 	}
 
+	public function randomPassword() {
+		$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+		$pass = array(); //remember to declare $pass as an array
+		$alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+		for ($i = 0; $i < 8; $i++) {
+			$n = rand(0, $alphaLength);
+			$pass[] = $alphabet[$n];
+
+            	
+        }
+        return implode($pass);
+    }
+
 	public function actionRegistro(){
 		$usuario = new EntUsuarios ();
 
@@ -88,14 +102,23 @@ class SiteController extends Controller {
 			$usuario->txt_token = $this->getToken();
 			date_default_timezone_set('America/Mexico_City');
 			$usuario->fch_creacion = Utils::getFechaActual();
+			$usuario->txt_codigo_usuario = $this->randomPassword();
 			if ($usuario->save ()) {
 
 				$link = Yii::$app->urlManager->createAbsoluteUrl([
 					'site/vista-codigo?token=' . $usuario->txt_token
 				]);
 				$urlCorta = $this->getShortUrl($link);
+
 				
-				$mensajeTexto = "Gracias por participar conserva el codigo QR adjunto, para poder reclamar el premio.: ".$urlCorta;
+				if($this->sendQr){
+					$mensajeTexto = "Gracias por participar conserva el codigo QR adjunto, para poder reclamar el premio.: ".$urlCorta;
+				}else{
+					$mensajeTexto = "Gracias por participar conserva el codigo adjunto, para poder reclamar el premio.: ".$urlCorta;
+				}
+				
+
+				
 				
 				$mensajes = new Mensajes();
 				$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono_celular);
@@ -135,9 +158,17 @@ class SiteController extends Controller {
 	public function actionVistaCodigo($token=""){
 		$usuario = EntUsuarios::find()->where(['txt_token'=>$token])->one();
 
-		return $this->render ( 'vista-qr',[
-			'usuario' => $usuario
-		]);
+		if($this->sendQr){
+			return $this->render ( 'vista-qr',[
+				'usuario' => $usuario
+			]);
+		}else{
+			return $this->render ( 'vista-codigo',[
+				'usuario' => $usuario
+			]);
+		}
+
+		
 	}
 
 	public function actionVerCodigo($token=""){
