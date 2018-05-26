@@ -205,14 +205,17 @@ Número de boletos:
 		$i = 0;
 
 		foreach ( $usuarios as $data ) {
-
+		
 			$arrayCsv [$i] ['nombreCompleto'] = $data->txt_nombre_completo;
 			$arrayCsv [$i] ['telefonoCelular'] = $data->txt_telefono_celular;
-			$arrayCsv [$i] ['codigoPostal'] = $data->txt_cp;
-			$arrayCsv [$i] ['txtEmail'] = $data->txt_email;
+			$arrayCsv [$i] ['numPelotas'] = $data->num_pelotas;
+			$arrayCsv [$i] ['codigoPromocional'] = $data->txt_codigo_promocional;
+			$arrayCsv [$i] ['codigoCompra'] = $data->txt_codigo_compra;
+			$arrayCsv [$i] ['colonia'] = $data->txt_colonia;
+			$arrayCsv [$i] ['sitioCompra'] = $data->txt_sitio_compra;
 			$arrayCsv [$i] ['fchRegistro'] = $data->fch_creacion;
 			$arrayCsv [$i] ['aceptoTerminos'] = $data->b_aceptar_terminos;
-			$arrayCsv [$i] ['numPelotas'] = $data->num_pelotas;
+			
 			$arrayCsv [$i] ['edad'] = $data->num_edad;
 			$arrayCsv [$i] ['txt_codigo_promocion'] = $data->txt_codigo_promocion;
 			
@@ -240,13 +243,13 @@ Número de boletos:
 		fputcsv ( $df, [
 				'Nombre completo',
 				'Telefono',
-				'C.P.',
-				'Email',
+				'# Boletos comprados',
+				'C. promocional',
+				'Codigo de compra',
+				'Colonia',
+				'Lugar de compra',
 				'Fecha registro',
 				'Acepto terminos',
-				'# Esferas',
-				'Edad',
-				'C. promocional'
 
 		]
 		 );
