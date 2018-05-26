@@ -13,6 +13,8 @@ var contenedorGracias = '.js-gracias-contenedor';
 var contenedorTarjetas = '.js-tarjetas-contenedor';
 var contenedorGlobal = '.container';
 
+checkAviso();
+
 function step1() {
 	$(contenedorPremio).hide();
 	$(contenedorTarjetas).show();
@@ -50,6 +52,8 @@ $(document).ready(function(){
 	$('.terminos-wrapper .message').on('click', function () {
 		showOverlay(overlayIsShowing)
 	});
+
+	
 
 	// Aceptar aviso de privacidad
 	$('.js-btn-aceptar-aviso').on('click', function (e) {
@@ -268,4 +272,11 @@ function validarSoloNumeros(e) {
 		&& (e.keyCode < 96 || e.keyCode > 105)) {
 		e.preventDefault();
 	}
+}
+
+function checkAviso(){
+
+	$('.js-check-box-aviso').css('background', '#0B223F');
+
+	$('.js-check-box-aviso').addClass('js-check-box-aviso-checked');
 }

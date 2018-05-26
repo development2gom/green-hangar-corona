@@ -63,7 +63,7 @@ class EntUsuarios extends \yii\db\ActiveRecord
             'fch_registro' => 'Fecha de Registro',
             'num_pelotas' => 'Numero de boletos',
             'txt_codigo_promocion'=>'Código promoción',
-            'txt_codito_usuario'=>'Código usuario'
+            'txt_codito_usuario'=>'Código alfanumérico'
         ];
     }
 

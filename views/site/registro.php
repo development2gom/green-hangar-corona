@@ -83,7 +83,7 @@ echo $form->field ( $usuario, 'txt_sitio_compra' )->textInput ( [
 				
 				<!---->
 				<div class="terminos-wrapper">
-					<div class="check-box js-modal-trigger js-check-box-aviso"></div>
+					<div class="check-box js-modal-trigger js-check-box-aviso "></div>
 					<p class="message">
 						He leído y acepto el <span id="aviso-trigger" class="highlight">aviso
 							de privacidad</span>

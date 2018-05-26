@@ -12,6 +12,6 @@ use yii\helpers\Url;
 	</div>
 
 	<h3>Presenta este código <span>para poder accesar</span></h3>
-	<?=$usuario->txt_codito_usuario?>
+	<h1><?=$usuario->txt_codito_usuario?></h1>
 
 </div>
