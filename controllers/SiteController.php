@@ -15,6 +15,7 @@ use app\models\ViewUsuarioDatos;
 use app\models\Mensajes;
 use app\models\CatPremios;
 use app\models\Utils;
+use app\models\EntUsuariosSearch;
 
 class SiteController extends Controller {
 	public $sendQr = false;
@@ -102,7 +103,7 @@ class SiteController extends Controller {
 			$usuario->txt_token = $this->getToken();
 			date_default_timezone_set('America/Mexico_City');
 			$usuario->fch_creacion = Utils::getFechaActual();
-			$usuario->txt_codigo_usuario = $this->randomPassword();
+			$usuario->txt_codito_usuario = $this->randomPassword();
 			if ($usuario->save ()) {
 
 				$link = Yii::$app->urlManager->createAbsoluteUrl([
@@ -117,9 +118,6 @@ class SiteController extends Controller {
 					$mensajeTexto = "Gracias por participar conserva el codigo adjunto, para poder reclamar el premio.: ".$urlCorta;
 				}
 				
-
-				
-				
 				$mensajes = new Mensajes();
 				$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono_celular);
 
@@ -132,6 +130,16 @@ class SiteController extends Controller {
 		return $this->render ( 'registro', [
 				'usuario' => $usuario
 		] );
+	}
+
+	public function actionConsultarCodigo(){
+		$searchModel = new EntUsuariosSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('consultar-codigo', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
 	}
 
 	private function getShortUrl($url)
@@ -246,7 +254,7 @@ Número de boletos:
 			$arrayCsv [$i] ['sitioCompra'] = $data->txt_sitio_compra;
 			$arrayCsv [$i] ['fchRegistro'] = $data->fch_creacion;
 			$arrayCsv [$i] ['aceptoTerminos'] = $data->b_aceptar_terminos;
-			$arrayCsv [$i] ['codigoUsuario'] = $data->txt_codigo_usuario;
+			$arrayCsv [$i] ['codigoUsuario'] = $data->txt_codito_usuario;
 			
 
 			$i++;

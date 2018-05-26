@@ -54,7 +54,6 @@ class EntUsuarios extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_usuario' => 'Id Usuario',
             'txt_nombre_completo' => 'Nombre Completo',
             'txt_token' => 'Token',
             'txt_telefono_celular' => 'Teléfono Celular',
@@ -63,8 +62,8 @@ class EntUsuarios extends \yii\db\ActiveRecord
             'num_edad' => 'Edad',
             'fch_registro' => 'Fecha de Registro',
             'num_pelotas' => 'Numero de Esferas',
-            'b_aceptar_terminos' => 'B Aceptar Terminos',
             'txt_codigo_promocion'=>'Código promoción',
+            'txt_codito_usuario'=>'Código usuario'
         ];
     }
 
