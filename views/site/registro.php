@@ -67,7 +67,7 @@ echo $form->field ( $usuario, 'txt_sitio_compra' )->textInput ( [
 				echo $form->field ( $usuario, 'num_pelotas' )->textInput ( [
 					'type'=>'number',
 					'maxlength' => 10,
-					'placeholder'=>'Número de boletos'
+					'placeholder'=>'Boletos comprados'
 				] )->label(false);
 
 				echo $form->field ( $usuario, 'txt_codigo_promocion' )->textInput ( [
