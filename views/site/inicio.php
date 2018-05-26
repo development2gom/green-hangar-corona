@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-$this->title = '24 ANIVERSARIO CENTRO COMERCIAL SANTA FE';
+$this->title = 'Hangar corona';
 ?>
 
 	

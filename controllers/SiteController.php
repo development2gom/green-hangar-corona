@@ -209,7 +209,7 @@ Número de boletos:
 			$arrayCsv [$i] ['nombreCompleto'] = $data->txt_nombre_completo;
 			$arrayCsv [$i] ['telefonoCelular'] = $data->txt_telefono_celular;
 			$arrayCsv [$i] ['numPelotas'] = $data->num_pelotas;
-			$arrayCsv [$i] ['codigoPromocional'] = $data->txt_codigo_promocional;
+			$arrayCsv [$i] ['codigoPromocional'] = $data->txt_codigo_promocion;
 			$arrayCsv [$i] ['codigoCompra'] = $data->txt_codigo_compra;
 			$arrayCsv [$i] ['colonia'] = $data->txt_colonia;
 			$arrayCsv [$i] ['sitioCompra'] = $data->txt_sitio_compra;
