@@ -216,9 +216,6 @@ Número de boletos:
 			$arrayCsv [$i] ['fchRegistro'] = $data->fch_creacion;
 			$arrayCsv [$i] ['aceptoTerminos'] = $data->b_aceptar_terminos;
 			
-			$arrayCsv [$i] ['edad'] = $data->num_edad;
-			$arrayCsv [$i] ['txt_codigo_promocion'] = $data->txt_codigo_promocion;
-			
 
 			$i++;
 		}
