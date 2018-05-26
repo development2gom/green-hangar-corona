@@ -246,6 +246,7 @@ Número de boletos:
 			$arrayCsv [$i] ['sitioCompra'] = $data->txt_sitio_compra;
 			$arrayCsv [$i] ['fchRegistro'] = $data->fch_creacion;
 			$arrayCsv [$i] ['aceptoTerminos'] = $data->b_aceptar_terminos;
+			$arrayCsv [$i] ['codigoUsuario'] = $data->txt_codigo_usuario;
 			
 
 			$i++;
@@ -278,6 +279,7 @@ Número de boletos:
 				'Lugar de compra',
 				'Fecha registro',
 				'Acepto terminos',
+				'Codigo usuario'
 
 		]
 		 );
