@@ -61,7 +61,7 @@ class EntUsuarios extends \yii\db\ActiveRecord
             'txt_email' => 'Correo electrónico',
             'num_edad' => 'Edad',
             'fch_registro' => 'Fecha de Registro',
-            'num_pelotas' => 'Numero de Esferas',
+            'num_pelotas' => 'Numero de boletos',
             'txt_codigo_promocion'=>'Código promoción',
             'txt_codito_usuario'=>'Código usuario'
         ];
